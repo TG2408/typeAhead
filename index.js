@@ -18,13 +18,14 @@ function displayMatches() {
   let oldlist = "";
   newList.forEach(found => {
       let regex = new RegExp(this.value, 'gi');
-      let cityName = found.city.replace(regex, `<span class="hl"> ${this.value} </span> `);
-      
+      let cityName = found.city.replace(regex, `<span class="hl">${this.value}</span> `);
+      let stateName = found.state.replace(regex, `<span class="hl">${this.value}</span> `);  
+      console.log(stateName);
       oldlist += 
         `<li>
             <ul>
-              <li><span class='name'> ${cityName}, ${found.state} </span></li>
-              <li><span class="population> Population - ${found.population} </span></li>
+              <li>${cityName}, ${stateName}</li>
+              <li>Population - ${found.population}</li>
               <li>GDP - ${found.growth_from_2000_to_2013} </li>
             </ul>
         </li>`;

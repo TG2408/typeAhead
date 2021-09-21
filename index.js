@@ -17,7 +17,14 @@ function displayMatches() {
   let newList = findMatches(this.value, cities);
   let oldlist = "";
   newList.forEach(found => {
-      oldlist = `<li>${found.city}, ${found.state}</li>`;
+      oldlist += 
+        `<li>
+            <ul>
+              <li>${found.city}, ${found.state} </li>
+              <li>Population - ${found.population} </li>
+              <li>GDP - ${found.growth_from_2000_to_2013} </li>
+            </ul>
+        </li>`;
   });
   suggestions.innerHTML = oldlist;
 }
